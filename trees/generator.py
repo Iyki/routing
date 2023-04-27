@@ -1,4 +1,6 @@
 import random
+import networkx as nx
+
 
 def generate_random_tree(n):
   parent = {}
@@ -75,3 +77,27 @@ def generate_dataset(N):
     return dataset
 # generate_dataset(10)
 
+# get edge adjacency list from files
+# create the graph
+# for each node in graph, get the distance to every other node
+# 
+
+def get_graph_from_files(fileslist):
+    dataset = []
+    
+    for file in fileslist:
+        # create graph with networkx
+        g = nx.read_edgelist(file, nodetype=int, create_using=nx.DiGraph)
+        all_shortest_paths = nx.shortest_path_length(g)
+        for all_paths in all_shortest_paths:
+            src = all_paths[0]
+            for dest in all_paths[1]:
+              dataset.append([src, dest, all_paths[1][dest]])
+
+        # optimize loops to use just one networkx function
+        nx.draw(g)
+    return dataset
+
+
+a = get_graph_from_files(["DistanceLabelling/datasets/ENZYMES_g1/ENZYMES_g1.edges"])
+print(a)
