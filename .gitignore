@@ -2,7 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+<<<<<<< HEAD
 .vscode/
+=======
+>>>>>>> bae7201 (Initial commit)
 
 # C extensions
 *.so
@@ -127,4 +130,8 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+<<<<<<< HEAD
 .pyre/
+=======
+.pyre/
+>>>>>>> bae7201 (Initial commit)
