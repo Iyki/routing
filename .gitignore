@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+<<<<<<< HEAD
+=======
+.vscode/
+>>>>>>> b29a2ce (changes, running on enzymes graph)
 
 # C extensions
 *.so
@@ -126,4 +130,8 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+<<<<<<< HEAD
 .pyre/
+=======
+.pyre/
+>>>>>>> b29a2ce (changes, running on enzymes graph)
