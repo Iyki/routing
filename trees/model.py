@@ -6,6 +6,7 @@ class CollabNN(Module):
 
     def __init__(self, src_sz, y_range, n_act=100):
         self.y_range = y_range
+        self.num_nodes = src_sz[0]
         self.n_bits = src_sz[1]
         self.prediction = None
 
@@ -19,7 +20,7 @@ class CollabNN(Module):
 
     def forward(self, x):
         out = self.embedding_layers(x[:, 0]), self.embedding_layers(x[:, 1])
-        out = torch.sign(torch.cat(out, dim=1))
+        out = torch.sign(torch.cat(out, dim=1)) * 0.5
 
         pred_out = self.layers(out)
         self.prediction = sigmoid_range(pred_out, *self.y_range)
